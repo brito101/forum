@@ -1,4 +1,4 @@
-#Forum
+# Forum
 
 - curl -s https://laravel.build/forum | bash
 - sail up -d
