@@ -9,3 +9,4 @@
 - sail npm run dev
 - sail composer require laravel/breeze
 - sail artisan breeze:install
+- sail artisan queue:work

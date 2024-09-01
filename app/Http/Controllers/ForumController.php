@@ -22,17 +22,17 @@ class ForumController extends Controller
 
     public function show(string $id)
     {
-        if(! $question = Question::with(['user','replies'])->find($id)){
+        if (! $question = Question::with(['user', 'replies'])->find($id)) {
             abort(404);
         }
 
         return view('forum.show', compact('question'));
     }
-    
+
 
     public function reply(StoreReplyQuestion $request)
     {
-        if(! $question = Question::find($request->question_id)){
+        if (! $question = Question::find($request->question_id)) {
             abort(404);
         }
 
@@ -42,9 +42,7 @@ class ForumController extends Controller
         ]);
 
         QuestionReplied::dispatch($question->user, $createdReply);
-
-        //Mail::to($question->user)->send(new QuestionRepliedMail);
-
+        
         return redirect()->back()->with('success', 'Pergunta respondida com sucesso!');
     }
 }
